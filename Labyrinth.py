@@ -1,0 +1,59 @@
+
+class Labyrinth:
+    """This class define the labyrinth model"""
+
+    def __init__(self):
+        self.streets = []
+        self.walls = []
+        self.width = None
+        self.heigth = None
+        self.departure = None
+        self.arrival = None
+
+
+    def load_labyrinth_from_file(self, file_name):
+        """-This method allows to read labyrinth file
+           - Determine labyrinth length and width
+           - Determine walls and streets in the labyrinth"""
+
+        with open("labyrinth.txt", "r") as my_file:
+            my_labyrinth = my_file.readlines()
+
+            #Determination of the street and wall of the labyrinth
+            for i, ligne in enumerate(my_labyrinth):
+                for j, caracter in enumerate(ligne.strip()):
+                    if caracter == '.':
+                        self.streets.append((i,j))
+                    elif caracter == '#':
+                        self.walls.append((i,j))   
+            
+            # Determination of the heigh and width of the labyrinth
+            self.heigth = len(my_labyrinth)
+            self.width = len(my_labyrinth[0].strip())
+
+           
+            # Determination of departure and arrival in the labyrinth
+            for i, ligne in enumerate(my_labyrinth):
+                for j, d in enumerate(ligne.strip()):
+                    if d == 'D':
+                        self.departure = (i,j)
+                    elif d == 'A':
+                        self.arrival = (i,j)    
+        return {
+            "streets": self.streets,
+            "walls": self.walls,
+            "width": self.width,
+            "heigth": self.heigth,
+            "departure": self.departure,
+            "arrival": self.arrival
+        }
+
+
+
+ 
+
+lab = Labyrinth()
+
+print(lab.load_labyrinth_from_file("labyrinth.txt"))
+
+
