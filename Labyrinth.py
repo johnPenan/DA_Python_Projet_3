@@ -3,6 +3,7 @@ class Labyrinth:
     """This class define the labyrinth model"""
 
     def __init__(self):
+        """ This method is the constructor of the class Labyrinth"""
         self.streets = []
         self.walls = []
         self.width = None
@@ -12,9 +13,10 @@ class Labyrinth:
 
 
     def load_labyrinth_from_file(self, file_name):
-        """-This method allows to read labyrinth file
-           - Determine labyrinth length and width
-           - Determine walls and streets in the labyrinth"""
+        """-This method allows to:
+           -Read labyrinth file
+           -Determine labyrinth height and width
+           -Determine walls and streets in the labyrinth"""
 
         with open("labyrinth.txt", "r") as my_file:
             my_labyrinth = my_file.readlines()
@@ -51,9 +53,9 @@ class Labyrinth:
 
 
  
+#Creation of Labyrinth object and loading labyrinth.txt file
+labyrinth = Labyrinth()
 
-lab = Labyrinth()
-
-print(lab.load_labyrinth_from_file("labyrinth.txt"))
+print(labyrinth.load_labyrinth_from_file("labyrinth.txt"))
 
 
