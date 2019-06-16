@@ -27,20 +27,16 @@ class Labyrinth:
                     if caracter == '.':
                         self.streets.append((i,j))
                     elif caracter == '#':
-                        self.walls.append((i,j))   
+                        self.walls.append((i,j))
+                    elif caracter == 'D':
+                        self.departure = (i,j)
+                    elif caracter == 'A':
+                        self.arrival = (i,j)   
             
             # Determination of the heigh and width of the labyrinth
-            self.heigth = len(my_labyrinth)
-            self.width = len(my_labyrinth[0].strip())
+                self.heigth = len(my_labyrinth)
+                self.width = len(my_labyrinth[0].strip())
 
-           
-            # Determination of departure and arrival in the labyrinth
-            for i, ligne in enumerate(my_labyrinth):
-                for j, d in enumerate(ligne.strip()):
-                    if d == 'D':
-                        self.departure = (i,j)
-                    elif d == 'A':
-                        self.arrival = (i,j)    
         return {
             "streets": self.streets,
             "walls": self.walls,
