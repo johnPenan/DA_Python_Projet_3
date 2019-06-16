@@ -5,24 +5,47 @@ class Position:
         self._y = y
 
    
-    def _get_up(self):
+    def _go_up(self):
         """This method define the up direction"""
         return Position(self._x-1, self._y)
 
-    def _get_down(self):
+    def _go_down(self):
         """This method define the down direction"""
         return Position(self._x+1, self._y)
 
-    def _get_left(self):
+    def _go_left(self):
         """This method define the left direction"""
         return Position(self._x, self._y-1)
 
-    def _get_right(self):
+    def _go_right(self):
         """This method define the right direction"""
         return Position(self._x, self._y+1)
 
     def __repr__(self):
         return str((self._x, self._y))
+
+
+     
+    # Properties
+    # @property
+    # def go_up(self):
+    #     return Position(self._x-1, self._y)
+
+    # @property
+    # def go_down(self):
+    #     return Position(self._x+1, self._y)
+
+    # @property
+    # def go_right(self):
+    #     return Position(self._x, self._y+1)
+
+    # @property
+    # def go_left(self):
+    #     return Position(self._x, self._y-1)
+
+
+
+
 
 
 
