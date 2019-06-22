@@ -40,11 +40,15 @@ class Labyrinth:
               
      def is_streets(self, position):
         """This methode return true if the position is a street"""
-        pass
+        if self.position in labyrinth.streets:
+            self.macgyver = new_position
+            return self.macgyver
 
     def is_walls(self, position):
         """This method return true if the position is a wall"""
-        pass
+        if self.position in labyrinth.walls:
+            return self.macgyver
+
 
 
     def display_labyrinth(labyrinth):
