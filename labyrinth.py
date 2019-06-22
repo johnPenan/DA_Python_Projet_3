@@ -1,3 +1,4 @@
+from position import Position
 class Labyrinth:
     """This class define the labyrinth model"""
 
@@ -26,21 +27,22 @@ class Labyrinth:
             for i, ligne in enumerate(my_labyrinth):
                 for j, caracter in enumerate(ligne.strip()):
                     if caracter == '.':
-                        self.streets.append((i,j))
+                        self.streets.append(Position(i,j))
                     elif caracter == '#':
-                        self.walls.append((i,j))
+                        self.walls.append(Position(i,j))
                     elif caracter == 'D':
-                        self.departure = (i,j)
+                        self.departure = Position(i,j)
                     elif caracter == 'A':
-                        self.arrival = (i,j)   
-            
+                        self.arrival = Position(i,j) 
+                          
             # Determination of the heigh and width of the labyrinth
                 self.heigth = len(my_labyrinth)
                 self.width = len(my_labyrinth[0].strip())
+
               
-     def is_streets(self, position):
+    def is_streets(self, position):
         """This methode return true if the position is a street"""
-        if self.position in labyrinth.streets:
+        if self.Position(i, j) in labyrinth.streets:
             self.macgyver = new_position
             return self.macgyver
 
@@ -50,31 +52,28 @@ class Labyrinth:
             return self.macgyver
 
 
-
-    def display_labyrinth(labyrinth):
+  
+    def display_labyrinth(self):
         """This method display the labyrinth"""
-        for i in range(labyrinth.heigth):
-            for j in range(labyrinth.width):
-                if Position(i, j) == labyrinth.macgyver.position:
-                    print("H")
-                elif Position(i, j) in labyrinth.streets:
+        for i in range(self.heigth):
+            for j in range(self.width):
+                if Position(i, j) in self.streets:
                     print(Position(i, j))
-                elif Position(i, j) in labyrinth.walls:
+                elif Position(i, j) in self.walls:
                     print(Position(i, j))
+    
+        
 
    
 
 
 
+labyrinth = Labyrinth()
 
+labyrinth.load_labyrinth_from_file("labyrinth.txt")
 
-lab = Labyrinth()
-macgyver = MacGyver(lab)
+print(labyrinth.display_labyrinth())
 
-macgyver.display_labyrinth("labyrinth.txt")
-
-
-       
 
 
 

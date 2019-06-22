@@ -1,28 +1,28 @@
 class Position:
     """This class define the different position of Macgyver"""
     def __init__(self, x, y):
-        self._x = x
-        self._y = y
+        self.x = x
+        self.y = y
 
    
-    def _go_up(self):
+    def go_up(self):
         """This method define the up direction of MacGyver"""
-        return Position(self._x-1, self._y)
+        return Position(self.x-1, self.y)
 
-    def _go_down(self):
+    def go_down(self):
         """This method define the down direction of MacGyver"""
-        return Position(self._x+1, self._y)
+        return Position(self.x+1, self.y)
 
-    def _go_left(self):
+    def go_left(self):
         """This method define the left direction of MacGyver"""
-        return Position(self._x, self._y-1)
+        return Position(self.x, self.y-1)
 
-    def _go_right(self):
+    def go_right(self):
         """This method define the right direction of MacGyver"""
-        return Position(self._x, self._y+1)
+        return Position(self.x, self.y+1)
 
     def __repr__(self):
-        return str((self._x, self._y))
+        return str((self.x, self.y))
 
 
 

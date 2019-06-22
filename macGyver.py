@@ -1,3 +1,4 @@
+from labyrinth import Labyrinth 
 class MacGyver:
     """This class define the position and the characteristic of the hero MacGyver"""
 
@@ -14,6 +15,8 @@ class MacGyver:
         new_position = getattr(self.position, direction)
         if new_position in self.labyrinth.streets:
             self.position = new_position
+
+
 
 
         
