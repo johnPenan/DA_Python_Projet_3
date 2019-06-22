@@ -11,7 +11,9 @@ class MacGyver:
 
     def move_macgyver(self, direction):
         """This method determine the different movements of MacGyver."""
-        pass
+        new_position = getattr(self.position, direction)
+        if new_position in self.labyrinth.streets:
+            self.position = new_position
 
         
 
