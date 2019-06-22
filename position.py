@@ -6,45 +6,29 @@ class Position:
 
    
     def _go_up(self):
-        """This method define the up direction"""
+        """This method define the up direction of MacGyver"""
         return Position(self._x-1, self._y)
 
     def _go_down(self):
-        """This method define the down direction"""
+        """This method define the down direction of MacGyver"""
         return Position(self._x+1, self._y)
 
     def _go_left(self):
-        """This method define the left direction"""
+        """This method define the left direction of MacGyver"""
         return Position(self._x, self._y-1)
 
     def _go_right(self):
-        """This method define the right direction"""
+        """This method define the right direction of MacGyver"""
         return Position(self._x, self._y+1)
 
     def __repr__(self):
         return str((self._x, self._y))
 
 
-     
-    # Properties
-    # @property
-    # def go_up(self):
-    #     return Position(self._x-1, self._y)
 
-    # @property
-    # def go_down(self):
-    #     return Position(self._x+1, self._y)
+p = Position(0, 0)
 
-    # @property
-    # def go_right(self):
-    #     return Position(self._x, self._y+1)
-
-    # @property
-    # def go_left(self):
-    #     return Position(self._x, self._y-1)
-
-
-
+print(p._go_down())
 
 
 
