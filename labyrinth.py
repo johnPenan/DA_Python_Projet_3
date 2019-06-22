@@ -38,7 +38,7 @@ class Labyrinth:
                 self.heigth = len(my_labyrinth)
                 self.width = len(my_labyrinth[0].strip())
               
-     def is_street(self, position):
+     def is_streets(self, position):
         """This methode return true if the position is a street"""
         pass
 
@@ -67,7 +67,7 @@ class Labyrinth:
 lab = Labyrinth()
 macgyver = MacGyver(lab)
 
-display_labyrinth("labyrinth.txt")
+macgyver.display_labyrinth("labyrinth.txt")
 
 
        

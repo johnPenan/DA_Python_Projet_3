@@ -15,6 +15,7 @@ class MacGyver:
         if new_position in self.labyrinth.streets:
             self.position = new_position
 
+
         
 
        
