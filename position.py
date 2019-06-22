@@ -25,10 +25,9 @@ class Position:
         return str((self._x, self._y))
 
 
-
-p = Position(0, 0)
-
-print(p._go_down())
+    def get_new_position(self, direction):
+        """This method gives the new position of MacGyver"""
+        new_position = None
 
 
 

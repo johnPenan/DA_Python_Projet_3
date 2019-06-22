@@ -1,4 +1,3 @@
-
 class Labyrinth:
     """This class define the labyrinth model"""
 
@@ -11,6 +10,7 @@ class Labyrinth:
         self.departure = None
         self.arrival = None
         self.macgyver = None
+        self.position = None
 
 
     def load_labyrinth_from_file(self, file_name):
@@ -37,22 +37,44 @@ class Labyrinth:
             # Determination of the heigh and width of the labyrinth
                 self.heigth = len(my_labyrinth)
                 self.width = len(my_labyrinth[0].strip())
+              
+     def is_street(self, position):
+        """This methode return true if the position is a street"""
+        pass
 
-        return {
-            "streets": self.streets,
-            "walls": self.walls,
-            "width": self.width,
-            "heigth": self.heigth,
-            "departure": self.departure,
-            "arrival": self.arrival
-        }
+    def is_walls(self, position):
+        """This method return true if the position is a wall"""
+        pass
+
+
+    def display_labyrinth(labyrinth):
+        """This method display the labyrinth"""
+        for i in range(labyrinth.heigth):
+            for j in range(labyrinth.width):
+                if Position(i, j) == labyrinth.macgyver.position:
+                    print("H")
+                elif Position(i, j) in labyrinth.streets:
+                    print(Position(i, j))
+                elif Position(i, j) in labyrinth.walls:
+                    print(Position(i, j))
+
+   
+
+
+
+
+
+lab = Labyrinth()
+macgyver = MacGyver(lab)
+
+display_labyrinth("labyrinth.txt")
+
+
+       
 
 
 
  
-#Creation of Labyrinth object and loading labyrinth.txt file
-labyrinth = Labyrinth()
 
-print(labyrinth.load_labyrinth_from_file("labyrinth.txt"))
 
 
