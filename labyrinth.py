@@ -42,14 +42,14 @@ class Labyrinth:
               
     def is_streets(self, position):
         """This methode return true if the position is a street"""
-        if self.Position(i, j) in labyrinth.streets:
-            self.macgyver = new_position
-            return self.macgyver
+        # if self.Position(i, j) in labyrinth.streets:
+        #     self.macgyver = new_position
+        #     return self.macgyver
 
     def is_walls(self, position):
         """This method return true if the position is a wall"""
-        if self.position in labyrinth.walls:
-            return self.macgyver
+        # if self.position in labyrinth.walls:
+        #     return self.macgyver
 
 
   
@@ -58,9 +58,16 @@ class Labyrinth:
         for i in range(self.heigth):
             for j in range(self.width):
                 if Position(i, j) in self.streets:
-                    print(Position(i, j))
+                    print(streets)
                 elif Position(i, j) in self.walls:
-                    print(Position(i, j))
+                    print(walls)
+
+        return {
+            "streets": self.streets,
+            "walls": self.walls,
+            "departure": self.departure,
+            "arrival": self.arrival
+        }
     
         
 
