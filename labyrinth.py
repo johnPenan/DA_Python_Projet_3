@@ -58,9 +58,9 @@ class Labyrinth:
         for i in range(self.heigth):
             for j in range(self.width):
                 if Position(i, j) in self.streets:
-                    print(streets)
+                    self.streets
                 elif Position(i, j) in self.walls:
-                    print(walls)
+                    self.walls
 
         return {
             "streets": self.streets,

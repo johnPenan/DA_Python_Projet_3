@@ -25,6 +25,10 @@ class Position:
         return str((self.x, self.y))
 
 
+    def __eq__(self, point):
+        return self.x == point.x and self.y == point.y
+
+
 
 
 
