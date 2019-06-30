@@ -1,4 +1,5 @@
 from position import Position
+from macgyver import MacGyver
 class Labyrinth:
     """This class define the labyrinth model"""
 
@@ -42,44 +43,55 @@ class Labyrinth:
               
     def is_streets(self, position):
         """This methode return true if the position is a street"""
-        # if self.Position(i, j) in labyrinth.streets:
-        #     self.macgyver = new_position
-        #     return self.macgyver
+        if position in self.streets:
+            return True
+        return False
 
     def is_walls(self, position):
         """This method return true if the position is a wall"""
-        # if self.position in labyrinth.walls:
-        #     return self.macgyver
+        if position in self.walls:
+            return True
+        return False
 
 
   
-    def display_labyrinth(self):
+    def display(self):
         """This method display the labyrinth"""
+        labyrinth = ""
         for i in range(self.heigth):
             for j in range(self.width):
-                if Position(i, j) in self.streets:
-                    self.streets
+                if Position(i, j) == self.macgyver.position:
+                    labyrinth +="M" 
+                elif Position(i, j) in self.streets:
+                    labyrinth += "."
                 elif Position(i, j) in self.walls:
-                    self.walls
+                    labyrinth +="#"
 
-        return {
-            "streets": self.streets,
-            "walls": self.walls,
-            "departure": self.departure,
-            "arrival": self.arrival
-        }
+                elif Position(i, j) == self.arrival:
+                    labyrinth += "A"
+                elif Position(i, j) == self.departure:
+                    labyrinth += "D"
+            labyrinth += "\n"
+
+        return labyrinth
     
         
 
    
+def main():
+    labyrinth = Labyrinth()
+    labyrinth.load_labyrinth_from_file("labyrinth.txt")
+    macgyver = MacGyver(labyrinth)
+    macgyver.move("go_right")
+    macgyver.move("go_right")
+    macgyver.move("go_down")
+    macgyver.move("go_down")
+    print(labyrinth.display())
 
 
+if __name__=="__main__":
+    main()
 
-labyrinth = Labyrinth()
-
-labyrinth.load_labyrinth_from_file("labyrinth.txt")
-
-print(labyrinth.display_labyrinth())
 
 
 
