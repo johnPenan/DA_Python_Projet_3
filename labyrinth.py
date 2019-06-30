@@ -48,6 +48,8 @@ class Labyrinth:
                 self.heigth = len(my_labyrinth)
                 self.width = len(my_labyrinth[0].strip())
 
+
+                # -tc- à prori ok
                 self.object_positions = random.sample(
                     set(self.streets)-{self.departure, self.arrival}, 3
                 )
