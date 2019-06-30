@@ -19,6 +19,7 @@ class MacGyver:
 
         elif new_position in self.labyrinth.object_positions:
             self.items.append(new_position)
+            self.position = new_position
        
 
 
