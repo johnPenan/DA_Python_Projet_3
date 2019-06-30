@@ -1,10 +1,28 @@
 from labyrinth import Labyrinth
-from macGyver import MacGyver
+from macgyver import MacGyver
+
+directions = {
+    "h": "go_up",
+    "b": "go_down",
+    "d": "go_right",
+    "g": "go_left"
+}
 
 def main():
     labyrinth = Labyrinth()
-    mac = MacGyver(labyrinth)
-    print("Hello", mac)
+    labyrinth.load_labyrinth_from_file("labyrinth.txt")
+    macgyver = MacGyver(labyrinth)
+
+    running = True
+
+    while running:
+        print(labyrinth.display())
+
+        response = input("Where do you want to go ? ( Q to quit the game)")
+        if response == "q" or response == "Q":
+            running = False
+        elif response in ("h", "b", "d", "g"):
+            macgyver.move(directions[response])
 
 if __name__=="__main__":
     main()    

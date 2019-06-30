@@ -28,6 +28,9 @@ class Position:
     def __eq__(self, point):
         return self.x == point.x and self.y == point.y
 
+    def __hash__(self):
+        return hash((self.x, self.y))
+
 
 
 

@@ -1,5 +1,6 @@
 from position import Position
 from macgyver import MacGyver
+import random
 class Labyrinth:
     """This class define the labyrinth model"""
 
@@ -13,6 +14,7 @@ class Labyrinth:
         self.arrival = None
         self.macgyver = None
         self.position = None
+        self.object_positions = None
 
 
     def load_labyrinth_from_file(self, file_name):
@@ -33,12 +35,21 @@ class Labyrinth:
                         self.walls.append(Position(i,j))
                     elif caracter == 'D':
                         self.departure = Position(i,j)
+                        self.streets.append(Position(i,j))
                     elif caracter == 'A':
-                        self.arrival = Position(i,j) 
+                        self.arrival = Position(i,j)
+                        self.streets.append(Position(i,j)) 
                           
             # Determination of the heigh and width of the labyrinth
                 self.heigth = len(my_labyrinth)
                 self.width = len(my_labyrinth[0].strip())
+
+                self.object_positions = random.sample(
+                    set(self.streets) - {self.departure, self.arrival}, 3
+                )
+
+            print("La position de l'objet est: ", self.object_positions)
+            print("L'ensemble des streets est: ", set(self.streets))
 
               
     def is_streets(self, position):
@@ -60,38 +71,28 @@ class Labyrinth:
         labyrinth = ""
         for i in range(self.heigth):
             for j in range(self.width):
+                needle, tube, ether = self.object_positions
                 if Position(i, j) == self.macgyver.position:
                     labyrinth +="M" 
-                elif Position(i, j) in self.streets:
-                    labyrinth += "."
-                elif Position(i, j) in self.walls:
-                    labyrinth +="#"
-
+                elif Position(i, j) == needle:
+                    labyrinth += "n"
+                elif Position(i, j) == tube:
+                    labyrinth += "t"
+                elif Position(i, j) == ether:
+                    labyrinth += "e"
                 elif Position(i, j) == self.arrival:
                     labyrinth += "A"
                 elif Position(i, j) == self.departure:
                     labyrinth += "D"
+                elif Position(i, j) in self.streets:
+                    labyrinth += "."
+                elif Position(i, j) in self.walls:
+                    labyrinth +="#"
             labyrinth += "\n"
 
         return labyrinth
     
-        
-
-   
-def main():
-    labyrinth = Labyrinth()
-    labyrinth.load_labyrinth_from_file("labyrinth.txt")
-    macgyver = MacGyver(labyrinth)
-    macgyver.move("go_right")
-    macgyver.move("go_right")
-    macgyver.move("go_down")
-    macgyver.move("go_down")
-    print(labyrinth.display())
-
-
-if __name__=="__main__":
-    main()
-
+    
 
 
 
