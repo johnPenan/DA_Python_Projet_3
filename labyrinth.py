@@ -1,6 +1,10 @@
+# -tc- les imports de la bibliothèthe standard toujour en premier
+import random
+
 from position import Position
 from macgyver import MacGyver
-import random
+
+
 class Labyrinth:
     """This class define the labyrinth model"""
 
@@ -45,7 +49,7 @@ class Labyrinth:
                 self.width = len(my_labyrinth[0].strip())
 
                 self.object_positions = random.sample(
-                    set(self.streets), 3
+                    set(self.streets)-{self.departure, self.arrival}, 3
                 )
 
             # print("La position de l'objet est: ", self.object_positions)
