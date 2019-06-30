@@ -8,7 +8,7 @@ class MacGyver:
         self.position = self.labyrinth.departure
         self.labyrinth.macgyver = self
         self.items = []
-       
+        # self.items = [self.labyrinth.object_positions[2]]
 
 
     def move(self, direction):
@@ -17,15 +17,13 @@ class MacGyver:
         if self.labyrinth.is_streets(new_position):
             self.position = new_position
 
-        elif self.labyrinth.is_streets(new_position) == "n":
-            self.items = [self.labyrinth.object_positions[0]]
-            self.position = new_position
-        elif self.labyrinth.is_streets(new_position) == "t":
-            self.items = [self.labyrinth.object_positions[1]]
-            self.position = new_position
-        elif self.labyrinth.is_streets(new_position) == "e":
-            self.items = [self.labyrinth.object_positions[2]]
-            self.position = new_position
+        elif new_position in self.labyrinth.object_positions:
+            self.items.append(new_position)
+
+
+
+
+    
 
     
 
