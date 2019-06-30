@@ -18,20 +18,8 @@ class MacGyver:
             self.position = new_position
 
         elif new_position in self.labyrinth.object_positions:
-            if self.labyrinth.object_positions[0] == "n":
-                self.items = [self.labyrinth.object_positions[0]]
-                new_position = self.items
-            elif self.labyrinth.object_positions[1] == "t":
-                self.items = [self.labyrinth.object_positions[1]]
-                new_position = self.items
-            elif self.labyrinth.object_positions[0] == "e":
-                self.items = [self.labyrinth.object_positions[2]]
-                new_position = self.items
-
-    # for i in self.labyrinth.object_positions:
-    #     if new_position in self.labyrinth.object_positions:
-    #         self.items = [self.labyrinth.object_positions[i]]
-    #         i += 1
+            self.items.append(new_position)
+       
 
 
 

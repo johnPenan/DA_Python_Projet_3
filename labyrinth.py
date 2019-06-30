@@ -1,6 +1,4 @@
-# -tc- les imports de la bibliothèthe standard toujour en premier
 import random
-
 from position import Position
 from macgyver import MacGyver
 
@@ -51,7 +49,7 @@ class Labyrinth:
 
                 # -tc- à prori ok
                 self.object_positions = random.sample(
-                    set(self.streets)-{self.departure, self.arrival}, 3
+                    set(self.streets), 3
                 )
 
             # print("La position de l'objet est: ", self.object_positions)
@@ -103,8 +101,6 @@ class Labyrinth:
                     labyrinth += "."
                 elif Position(i, j) in self.walls:
                     labyrinth +="#"
-                elif self.macgyver.position == "n":
-                    self.object_positions.remove("n")
             labyrinth += "\n"
 
         return labyrinth
