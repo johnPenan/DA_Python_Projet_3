@@ -45,11 +45,11 @@ class Labyrinth:
                 self.width = len(my_labyrinth[0].strip())
 
                 self.object_positions = random.sample(
-                    set(self.streets) - {self.departure, self.arrival}, 3
+                    set(self.streets), 3
                 )
 
-            print("La position de l'objet est: ", self.object_positions)
-            print("L'ensemble des streets est: ", set(self.streets))
+            # print("La position de l'objet est: ", self.object_positions)
+            # print("L'ensemble des streets est: ", set(self.streets))
 
               
     def is_streets(self, position):
@@ -75,11 +75,20 @@ class Labyrinth:
                 if Position(i, j) == self.macgyver.position:
                     labyrinth +="M" 
                 elif Position(i, j) == needle:
-                    labyrinth += "n"
+                    if Position(i, j) not in self.macgyver.items:
+                        labyrinth += "n"
+                    else:
+                        labyrinth += "."
                 elif Position(i, j) == tube:
-                    labyrinth += "t"
+                    if Position(i, j) not in self.macgyver.items:
+                        labyrinth += "t"
+                    else:
+                        labyrinth += "."
                 elif Position(i, j) == ether:
-                    labyrinth += "e"
+                    if Position(i, j) not in self.macgyver.items:
+                        labyrinth += "e"
+                    else:
+                        labyrinth += "."
                 elif Position(i, j) == self.arrival:
                     labyrinth += "A"
                 elif Position(i, j) == self.departure:
@@ -88,9 +97,15 @@ class Labyrinth:
                     labyrinth += "."
                 elif Position(i, j) in self.walls:
                     labyrinth +="#"
+                elif self.macgyver.position == "n":
+                    self.object_positions.remove("n")
             labyrinth += "\n"
 
         return labyrinth
+
+
+   
+
     
     
 
