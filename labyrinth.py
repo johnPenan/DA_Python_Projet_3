@@ -40,20 +40,19 @@ class Labyrinth:
                         self.streets.append(Position(i,j))
                     elif caracter == 'A':
                         self.arrival = Position(i,j)
-                        self.streets.append(Position(i,j)) 
-                          
+                        self.streets.append(Position(i,j))                         
+                                  
             # Determination of the heigh and width of the labyrinth
-                self.heigth = len(my_labyrinth)
-                self.width = len(my_labyrinth[0].strip())
+            self.heigth = len(my_labyrinth)
+            self.width = len(my_labyrinth[0].strip())
 
 
-                # -tc- à prori ok
-                self.object_positions = random.sample(
-                    set(self.streets), 3
+            self.object_positions = random.sample(
+                set(self.streets), 3
                 )
-
-            # print("La position de l'objet est: ", self.object_positions)
-            # print("L'ensemble des streets est: ", set(self.streets))
+            # self.object_positions = random.sample(
+            #     set(self.streets) - {self.departure, self.arrival}, k=3
+            #     )
 
               
     def is_streets(self, position):
@@ -67,8 +66,6 @@ class Labyrinth:
         if position in self.walls:
             return True
         return False
-
-
   
     def display(self):
         """This method display the labyrinth"""
@@ -107,7 +104,9 @@ class Labyrinth:
 
 
    
-
+def main():
+    labyrinth = Labyrinth()
+    print(labyrinth.load_labyrinth_from_file("labyrinth.txt"))
     
     
 
