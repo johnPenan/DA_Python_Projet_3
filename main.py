@@ -18,8 +18,8 @@ def main():
     while running:
         print(labyrinth.display())
 
-        response = input("Where do you want to go ? ( Q to quit the game)")
-        if response == "q" or response == "Q":
+        response = input("Where do you want to go ? ( Q to quit the game)").lower()
+        if response == "q":
             running = False
         elif response in ("h", "b", "d", "g"):
             macgyver.move(directions[response])

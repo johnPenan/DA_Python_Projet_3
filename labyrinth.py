@@ -46,14 +46,9 @@ class Labyrinth:
             self.heigth = len(my_labyrinth)
             self.width = len(my_labyrinth[0].strip())
 
-
             self.object_positions = random.sample(
-                set(self.streets), 3
+                set(self.streets) - {self.departure, self.arrival}, k=3
                 )
-            # self.object_positions = random.sample(
-            #     set(self.streets) - {self.departure, self.arrival}, k=3
-            #     )
-
               
     def is_streets(self, position):
         """This methode return true if the position is a street"""
@@ -103,10 +98,7 @@ class Labyrinth:
         return labyrinth
 
 
-   
-def main():
-    labyrinth = Labyrinth()
-    print(labyrinth.load_labyrinth_from_file("labyrinth.txt"))
+
     
     
 
