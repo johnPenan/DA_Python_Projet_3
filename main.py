@@ -22,7 +22,7 @@ def main():
         if response == "q":
             running = False
         elif response in ("h", "b", "d", "g"):
-            macgyver.move(directions[response])
+            running = macgyver.move(directions[response])
 
 if __name__=="__main__":
     main()    
