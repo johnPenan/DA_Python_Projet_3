@@ -7,7 +7,7 @@ WIDTH = 640
 
 BACKGROUND = str(BASE_DIR / 'images' / 'background.jpg')
 MACGYVER = str(BASE_DIR / 'images' / 'macgyver.png')
+GARDIEN = str(BASE_DIR / 'images' / 'gardien.png')
 
 
-
-BLACK = (0, 0, 0)
+# BLACK = (0, 0, 0)
