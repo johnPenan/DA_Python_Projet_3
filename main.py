@@ -1,5 +1,5 @@
-from labyrinth import Labyrinth
-from macgyver import MacGyver
+from logic.labyrinth import Labyrinth
+from logic.macgyver import MacGyver
 
 directions = {
     "h": "go_up",
@@ -10,7 +10,7 @@ directions = {
 
 def main():
     labyrinth = Labyrinth()
-    labyrinth.load_labyrinth_from_file("labyrinth.txt")
+    labyrinth.load_labyrinth_from_file("resources/labyrinth.txt")
     macgyver = MacGyver(labyrinth)
 
     running = True
