@@ -1,5 +1,6 @@
 from logic.labyrinth import Labyrinth
 from logic.macgyver import MacGyver
+from logic.position import Position
 
 directions = {
     "h": "go_up",
@@ -17,7 +18,6 @@ def main():
 
     while running:
         print(labyrinth.display())
-
         response = input("Where do you want to go ? ( Q to quit the game)").lower()
         if response == "q":
             running = False
