@@ -1,6 +1,5 @@
 from logic.labyrinth import Labyrinth
 from logic.macgyver import MacGyver
-from logic.position import Position
 
 directions = {
     "h": "go_up",

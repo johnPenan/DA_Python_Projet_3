@@ -1,6 +1,6 @@
 import random
-from position import Position
-from macgyver import MacGyver
+from logic.position import Position
+from logic.macgyver import MacGyver
 
 
 class Labyrinth:
