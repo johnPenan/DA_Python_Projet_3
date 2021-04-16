@@ -3,9 +3,13 @@ import pygame
 
 pygame.init()
 
+from logic.labyrinth import Labyrinth
+from logic.macgyver import MacGyver
+
 class Game:
     ''' Game to help MacGyver escape '''
     def __init__(self):
+        
         self.window_resolution = (600, 600)
         self.streets = pygame.image.load("../stage/streets.png")
         self.walls = pygame.image.load("../stage/walls.png")
@@ -14,7 +18,7 @@ class Game:
 
     def display(self):
 
-        pygame.display.set_caption("Macgyver Labyrinth Game")
+        pygame.display.set_caption("Labyrinth Game")
         window_surface = pygame.display.set_mode(self.window_resolution, pygame.RESIZABLE)
 
         while self.game_is_running:
