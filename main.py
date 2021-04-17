@@ -1,7 +1,8 @@
-from logic.labyrinth import Labyrinth
-from logic.macgyver import MacGyver
+#from logic.labyrinth import Labyrinth
+#from logic.macgyver import MacGyver
+from graphic.game import Game
 
-directions = {
+"""directions = {
     "h": "go_up",
     "b": "go_down",
     "d": "go_right",
@@ -22,7 +23,11 @@ def main():
             running = False
         elif response in ("h", "b", "d", "g"):
             running = macgyver.move(directions[response])
-
+"""
 if __name__=="__main__":
-    main()    
+#    main()    
+    game = Game()
+    game.display()
+
+
     

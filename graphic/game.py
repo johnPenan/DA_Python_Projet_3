@@ -11,10 +11,13 @@ class Game:
     def __init__(self):
         
         self.window_resolution = (600, 600)
-        self.streets = pygame.image.load("../stage/streets.png")
-        self.walls = pygame.image.load("../stage/walls.png")
+        self.streets = pygame.image.load("stage/streets.png")
+        self.walls = pygame.image.load("stage/murs.png")
         self.game_is_running = True
         self.blank_color = (0, 0, 0)
+        self.labyrinth = Labyrinth()
+        self.labyrinth.load_labyrinth_from_file("resources/labyrinth.txt")
+        self.macgyver = MacGyver(self.labyrinth)
 
     def display(self):
 
@@ -27,10 +30,11 @@ class Game:
                     self.game_is_running = False
 
             window_surface.fill(self.blank_color)
-            window_surface.blit(self.streets, [10, 10])
+            for wall in self.labyrinth.walls:
+                window_surface.blit(self.walls, [wall.x*40, wall.y*40])
+            """window_surface.blit(self.streets, [10, 10])
             window_surface.blit(self.walls, [40, 40])
+            """
             pygame.display.flip()
 
 
-game = Game()
-game.display()
