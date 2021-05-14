@@ -5,21 +5,33 @@ class Position:
         self.y = y
 
    
-    def go_up(self):
+    def go_up(self, streets):
         """This method define the up direction of MacGyver"""
-        return Position(self.x-1, self.y)
+        #return Position(self.x-1, self.y)
+        self.y -=1
+        if(self not in streets):
+            self.y += 1
 
-    def go_down(self):
+    def go_down(self, streets):
         """This method define the down direction of MacGyver"""
-        return Position(self.x+1, self.y)
+        #return Position(self.x+1, self.y)
+        self.y +=1
+        if(self not in streets):
+            self.y -= 1
 
-    def go_left(self):
+    def go_left(self, streets):
         """This method define the left direction of MacGyver"""
-        return Position(self.x, self.y-1)
+        #return Position(self.x, self.y-1)
+        self.x -=1
+        if(self not in streets):
+            self.x +=1
 
-    def go_right(self):
+    def go_right(self, streets):
         """This method define the right direction of MacGyver"""
-        return Position(self.x, self.y+1)
+        """return Position(self.x, self.y+1)"""
+        self.x +=1
+        if(self not in streets):
+            self.x -=1
 
     def __repr__(self):
         return str((self.x, self.y))
@@ -30,8 +42,3 @@ class Position:
 
     def __hash__(self):
         return hash((self.x, self.y))
-
-
-
-
-
