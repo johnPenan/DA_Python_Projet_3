@@ -1,57 +1,100 @@
-
+import time
 import pygame
-
 pygame.init()
-
 from logic.labyrinth import Labyrinth
 from logic.macgyver import MacGyver
 from logic.position import Position
+from logic.object import Object
+from resources import constants
 
 class Game:
     ''' Game to help MacGyver escape '''
     def __init__(self):
         
-        self.window_resolution = (600, 600)
-        self.streets = pygame.image.load("stage/streets.png")
-        self.walls = pygame.image.load("stage/walls.png")
-        self.departure = pygame.image.load("stage/departure.png")
-        self.arrival = pygame.image.load("stage/arrival.png")
-        self.hero = pygame.image.load("stage/macGyver.png")
-        self.needle = pygame.image.load("stage/needle.png")
         self.game_is_running = True
-        self.blank_color = (0, 0, 0)
         self.labyrinth = Labyrinth()
         self.labyrinth.load_labyrinth_from_file("resources/labyrinth.txt")
         self.macgyver = MacGyver(self.labyrinth)
+        self.objects = []
+        for i in range(3):
+            self.objects.append(Object(self.labyrinth.objects[i], self.labyrinth.object_positions[i]))
 
     def display(self):
 
         pygame.display.set_caption("Labyrinth Game")
-        window_surface = pygame.display.set_mode(self.window_resolution, pygame.RESIZABLE)
+        self.window_surface = pygame.display.set_mode(constants.window_resolution, pygame.RESIZABLE)
+        self.text_display()
 
         while self.game_is_running:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    self.game_is_running = False
+            self.move()  
+            self.object_display()          
+            
+    def check_and_display_objects(self):
+        for ob in self.objects:
+            if self.macgyver.position == ob.position:
+                ob.is_drop = True
+            if not ob.is_drop:
+                self.window_surface.blit(ob.load_image, [ob.position.x *40, ob.position.y *40])
 
-            window_surface.fill(self.blank_color)
-            for street in self.labyrinth.streets:
-                window_surface.blit(self.streets, [street.x*40, street.y*40])
-            # walls
-            for wall in self.labyrinth.walls:
-                window_surface.blit(self.walls, [wall.x*40, wall.y*40])
-            # departure
-            for street in self.labyrinth.streets:
-                    window_surface.blit(self.departure, [self.labyrinth.departure.x, self.labyrinth.departure.y]) 
-            # arrival or gardien
-            for street in self.labyrinth.streets:
-                    window_surface.blit(self.arrival, [self.labyrinth.arrival.x, self.labyrinth.arrival.y])  
-            # macgyver
-            for street in self.labyrinth.streets:
-                window_surface.blit(self.hero, [self.macgyver.position.x, self.macgyver.position.y]) 
-            # needle
-            for ob in self.labyrinth.object_positions:
-                window_surface.blit(self.needle, [ob.x, ob.y]) 
-            pygame.display.flip()
+    def is_all_objects_drop(self):
+        for object in self.objects:
+            if not object.is_drop:
+                return False
+        return True
+
+    def check_all_objects_drop(self):
+        if self.macgyver.position == self.labyrinth.arrival and self.is_all_objects_drop() == True:
+            self.window_surface.blit(self.game_win,self.rectTexte)
+            pygame.time.delay(5000)
+            self.game_is_running = False
+        if self.macgyver.position == self.labyrinth.arrival and self.is_all_objects_drop() == False:
+            self.window_surface.blit(self.game_over,self.rectTexte)
+            pygame.time.delay(5000)
+            self.game_is_running = False
+
+    def text_display(self):
+        rectScreen = self.window_surface.get_rect()
+
+        police = pygame.font.Font("resources/LED Dot-Matrix.ttf",60)
+        self.game_over = police.render("Game Over",True,pygame.Color("#DC143C"))
+        self.rectTexte = self.game_over.get_rect()
+        self.rectTexte.center = rectScreen.center
+
+        self.game_win = police.render("Win Win",True,pygame.Color("#00FF7F"))
+        self.rectTexte = self.game_win.get_rect()
+        self.rectTexte.center = rectScreen.center
 
 
+    def move(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.game_is_running = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_DOWN:
+                        self.macgyver.position.go_down(self.labyrinth.streets)
+                elif event.key == pygame.K_UP:
+                    self.macgyver.position.go_up(self.labyrinth.streets)
+                elif event.key == pygame.K_LEFT:
+                    self.macgyver.position.go_left(self.labyrinth.streets)
+                elif event.key == pygame.K_RIGHT:
+                    self.macgyver.position.go_right(self.labyrinth.streets)
+
+    def object_display(self):
+        self.window_surface.fill(constants.blank_color)
+        # streets
+        for street in self.labyrinth.streets:
+            self.window_surface.blit(constants.streets, [street.x*40, street.y*40])
+        # walls
+        for wall in self.labyrinth.walls:
+            self.window_surface.blit(constants.walls, [wall.x*40, wall.y*40])
+        # departure
+        self.window_surface.blit(constants.departure, [self.labyrinth.departure.x * 40, self.labyrinth.departure.y *40]) 
+        # arrival 
+        self.window_surface.blit(constants.arrival, [self.labyrinth.arrival.x *40, self.labyrinth.arrival.y *40])  
+        # macgyver
+        self.window_surface.blit(constants.hero, [self.macgyver.position.x * 40, self.macgyver.position.y * 40]) 
+        # objects
+        self.check_and_display_objects()
+        self.is_all_objects_drop()
+        self.check_all_objects_drop()
+        pygame.display.flip()
