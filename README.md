@@ -1,50 +1,50 @@
-# PROJET 3: Aidez MacGyver à s'échapper
+# PROJECT 3: Help MacGyver escape
 
-MacGyver aurait été enfermé dans un labyrinth 2D. Ce projet permet à MacGyver de créer une seringue avec une aiguille, un petit tube en plastique et de l'éther pour endormir le gardien et de s'échapper.
+MacGyver would have been locked in a 2D labyrinth. This project allows MacGyver to create a syringe with a needle, a small plastic tube and ether to put the guard to sleep and escape.
 
-* [Details du projet](https://openclassrooms.com/fr/paths/68/projects/156/assignment)  
+* [Details of the project](https://openclassrooms.com/fr/paths/68/projects/156/assignment)  
  
-## Pour commencer
+## Getting started
 
-Ces instructions permettent d'obtenir une copie du projet afin de le tester sur votre machine.
+These instructions allow you to obtain a copy of the project to test it on your machine.
 
-### Pré-requis
+### Prerequisites
 
-Le programme étant écrit en Python, il est indispensable que celui-ci soit installé sur votre machine. Vous pouvez télécharger Python :
-* [Télecharger Python](https://www.python.org/downloads/)  
+As the program is written in Python, it is essential that it is installed on your machine. You can download Python:
+* [Download Python](https://www.python.org/downloads/)  
 
 ### Installation
 
-Pour ne pas entrer en conflit avec d'autres projets déjà existants, il est préférable d'exécuter le programme sous un environnement virtuel.
-Voici les principales commandes pour :
+In order not to conflict with other existing projects, it is best to run the program in a virtual environment.
+Here are the main commands for :
 
-1. Créer un environnement virtuel 
+1. Creating a virtual environment 
 
 mac/linux : ```sudo pip3 install pipenv```
 windows : ```pip install pipenv ```
 
-2. Activer l'environnement virtuel
+2. Activate the virtual environment
 
 windows/mac/linux : ```pipenv shell```
 
-Pour plus de détails sur l'installation d'un environnement virtuel, se reporter à la documentation Python
-* [Documentation Python](https://docs.python.org/3/search.html?q=virtual+environment)  
+For more details on setting up a virtual environment, see the Python documentation
+* [Python documentation](https://docs.python.org/3/search.html?q=virtual+environment)  
 
-## Démarrage
+## Start-up
 
-Une fois la console placée dans le dossier du programme, il suffit d'exécuter la commande suivante dans l'environnement virtuel:
+Once the console has been placed in the program folder, simply run the following command in the virtual environment:
 
 ```python3 main.py```
 
-## Développement fait avec:
-[VisualStudioCode](https://code.visualstudio.com/) - Editeur de textes
+## Development done with:
+[VisualStudioCode](https://code.visualstudio.com/) - Text editor
 
 
-## Auteurs
+## Authors
 
-* **Jean Penan Goumou** [Lien Github](https://github.com/johnPenan/DA_Python_Projet_3.git) 
+* **Jean Penan Goumou** [Github link](https://github.com/johnPenan/DA_Python_Projet_3.git) 
 
 
-## Remerciements
+## Acknowledgements
 
-Merci à **Thierry Chappuis** et **Ranga Gonnage** pour l'accompagnement et le soutien.
+Thanks to **Thierry Chappuis** and **Ranga Gonnage** for their guidance and support.
