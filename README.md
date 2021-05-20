@@ -2,7 +2,7 @@
 
 MacGyver aurait été enfermé dans un labyrinth 2D. Ce projet permet à MacGyver de créer une seringue avec une aiguille, un petit tube en plastique et de l'éther pour endormir le gardien et de s'échapper.
 
-* [Details du projet: ](https://openclassrooms.com/fr/paths/68/projects/156/assignment)  
+* [Details du projet](https://openclassrooms.com/fr/paths/68/projects/156/assignment)  
  
 ## Pour commencer
 
@@ -36,7 +36,7 @@ Une fois la console placée dans le dossier du programme, il suffit d'exécuter 
 
 ```python3 main.py```
 
-## Développement fait avec
+## Développement fait avec:
 [VisualStudioCode](https://code.visualstudio.com/) - Editeur de textes
 
 
@@ -47,4 +47,4 @@ Une fois la console placée dans le dossier du programme, il suffit d'exécuter 
 
 ## Remerciements
 
-Merci à **Thierry Chappuis** pour l'accompagnement et le soutien.
+Merci à **Thierry Chappuis** et **Ranga Gonnage** pour l'accompagnement et le soutien.
