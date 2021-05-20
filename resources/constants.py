@@ -1,6 +1,5 @@
 import pygame
 window_resolution = (600, 600)
-
 streets = pygame.image.load("stage/streets.png")
 walls = pygame.image.load("stage/walls.png")
 departure = pygame.image.load("stage/departure.png")
