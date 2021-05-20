@@ -61,6 +61,7 @@ class Game:
             and self.is_all_objects_is_pick_up() is True
         ):
             self.window_surface.blit(self.game_win, self.rectTexte)
+            pygame.display.flip()
             pygame.time.wait(5000)
             self.game_is_running = False
         if (
@@ -68,6 +69,7 @@ class Game:
             and self.is_all_objects_is_pick_up() is False
         ):
             self.window_surface.blit(self.game_over, self.rectTexte)
+            pygame.display.flip()
             pygame.time.wait(5000)
             self.game_is_running = False
 
