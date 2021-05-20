@@ -27,6 +27,8 @@ windows : ```pip install pipenv ```
 
 windows/mac/linux : ```pipenv shell```
 
+3. Install python module : ```pip install -r requirements.txt ``` 
+
 For more details on setting up a virtual environment, see the Python documentation
 * [Python documentation](https://docs.python.org/3/search.html?q=virtual+environment)  
 
