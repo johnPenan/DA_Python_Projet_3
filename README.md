@@ -1,8 +1,8 @@
 # PROJET 3: Aidez MacGyver à s'échapper
 
 MacGyver aurait été enfermé dans un labyrinth 2D. Ce projet permet à MacGyver de créer une seringue avec une aiguille, un petit tube en plastique et de l'éther pour endormir le gardien et de s'échapper.
-* Details du projet: 
-https://openclassrooms.com/fr/paths/68/projects/156/assignment
+
+* [Details du projet: ](https://openclassrooms.com/fr/paths/68/projects/156/assignment)  
  
 ## Pour commencer
 
@@ -25,7 +25,6 @@ windows : ```pip install pipenv ```
 
 2. Activer l'environnement virtuel
 
-# windows : ```env\Scripts\activate.bat```
 windows/mac/linux : ```pipenv shell```
 
 Pour plus de détails sur l'installation d'un environnement virtuel, se reporter à la documentation Python
@@ -48,4 +47,4 @@ Une fois la console placée dans le dossier du programme, il suffit d'exécuter 
 
 ## Remerciements
 
-Merci à **Thierry Chappuis** et **Ranga Gonnage** pour l'accompagnement et le soutien.
+Merci à **Thierry Chappuis** pour l'accompagnement et le soutien.
