@@ -42,7 +42,7 @@ Une fois la console placée dans le dossier du programme, il suffit d'exécuter 
 
 ## Auteurs
 
-* **Jean Penan Goumou** (https://github.com/johnPenan/DA_Python_Projet_3.git)
+* **Jean Penan Goumou** [Lien Github](https://github.com/johnPenan/DA_Python_Projet_3.git) 
 
 
 ## Remerciements
