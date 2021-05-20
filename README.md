@@ -40,7 +40,7 @@ Once the console has been placed in the program folder, simply run the following
 [VisualStudioCode](https://code.visualstudio.com/) - Text editor
 
 
-## Authors
+## Author
 
 * **Jean Penan Goumou** [Github link](https://github.com/johnPenan/DA_Python_Projet_3.git) 
 
