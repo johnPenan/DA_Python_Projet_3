@@ -70,38 +70,3 @@ class Labyrinth:
         self.ether = pygame.image.load("stage/ether.png")
         self.seringue = pygame.image.load("stage/seringue.png")
         return self.needle, self.ether, self.seringue
-
-    def display(self):
-        """This method display the labyrinth in console mode """
-        labyrinth = ""
-        for i in range(self.heigth):
-            for j in range(self.width):
-                needle, tube, ether = self.object_positions
-                if Position(i, j) == self.macgyver.position:
-                    labyrinth += "M"
-                elif Position(i, j) == needle:
-                    if Position(i, j) not in self.macgyver.items:
-                        labyrinth += "n"
-                    else:
-                        labyrinth += "."
-                elif Position(i, j) == tube:
-                    if Position(i, j) not in self.macgyver.items:
-                        labyrinth += "t"
-                    else:
-                        labyrinth += "."
-                elif Position(i, j) == ether:
-                    if Position(i, j) not in self.macgyver.items:
-                        labyrinth += "e"
-                    else:
-                        labyrinth += "."
-                elif Position(i, j) == self.arrival:
-                    labyrinth += "A"
-                elif Position(i, j) == self.departure:
-                    labyrinth += "D"
-                elif Position(i, j) in self.streets:
-                    labyrinth += "."
-                elif Position(i, j) in self.walls:
-                    labyrinth += "#"
-            labyrinth += "\n"
-
-        return labyrinth
